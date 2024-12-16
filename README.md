@@ -11,37 +11,37 @@ The platform uses a voice-enabled interface for hands-free interaction, enhancin
 
 # Features
 
-Voice-Assisted Input: Uses Web Speech API for hands-free user inputs.
+- Voice-Assisted Input: Uses Web Speech API for hands-free user inputs.
 
-Salary Prediction: Utilizes the Gradient Boosting Algorithm for accurate salary forecasts.
+- Salary Prediction: Utilizes the Gradient Boosting Algorithm for accurate salary forecasts.
 
-Job Recommendations: Combines Collaborative Filtering and Content-Based Filtering for personalized job suggestions.
+- Job Recommendations: Combines Collaborative Filtering and Content-Based Filtering for personalized job suggestions.
 
-Course Recommendations: Content-based filtering powered by TF-IDF for skill enhancement.
+- Course Recommendations: Content-based filtering powered by TF-IDF for skill enhancement.
 
-User Feedback Analysis: Collects and displays feedback to assist decision-making.
+- User Feedback Analysis: Collects and displays feedback to assist decision-making.
 
 # Technology Stack 💻
 
-Frontend: HTML, CSS, JavaScript
+- Frontend: HTML, CSS, JavaScript
 
-Backend: PHP, Flask
+- Backend: PHP, Flask
 
-Machine Learning: Gradient Boosting, TF-IDF, Collaborative Filtering
+- Machine Learning: Gradient Boosting, TF-IDF, Collaborative Filtering
 
-Datasets: Kaggle datasets for jobs, courses, and salary data.
+- Datasets: Kaggle datasets for jobs, courses, and salary data.
 
 # How It Works
 
-Input: Users interact via a voice-enabled or manual interface.
+- Input: Users interact via a voice-enabled or manual interface.
 
-Prediction & Recommendations: ML models process the data to predict salaries and recommend jobs/courses.
+- Prediction & Recommendations: ML models process the data to predict salaries and recommend jobs/courses.
 
-Feedback: Users share feedback that helps future users.
+- Feedback: Users share feedback that helps future users.
 
 # Team Behind this Project
 
-
+![core team of Data Professionals](https://github.com/user-attachments/assets/b83c0e16-5b89-4559-8ba8-f94859c41ccd)
 
 # Conclusion
 
