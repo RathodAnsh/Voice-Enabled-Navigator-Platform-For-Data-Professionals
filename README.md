@@ -39,6 +39,10 @@ Prediction & Recommendations: ML models process the data to predict salaries and
 
 Feedback: Users share feedback that helps future users.
 
+# Team Behind this Project
+
+
+
 # Conclusion
 
 The platform addresses fragmented systems by providing a unified solution with advanced features, specifically tailored for data professionals.
