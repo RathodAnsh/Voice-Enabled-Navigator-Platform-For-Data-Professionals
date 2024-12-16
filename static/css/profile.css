@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a; /* Dark blue background color */
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Orbitron';
+    color: white;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.header-right a,
+.header-right .btn {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-right a:hover,
+.header-right .btn:hover {
+    background-color: lightslategray;
+}
+
+.header-right a:focus,
+.header-right .btn:focus {
+    outline: none;
+}
+
+.profile-button {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-button img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    margin-right: 10px;
+}
+
+.profile-button button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.profile-button button:hover {
+    color: lightslategray;
+}
+
+#logoutDropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#logoutDropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#logoutDropdown a:hover {
+    background-color: #ddd;
+}
+
+.pro {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+main {
+    padding: 20px;
+    margin-top: 80px;
+    padding-bottom: 100px;
+    background-color: #0d1b2a;
+    transition: padding 0.3s ease, margin-top 0.3s ease;
+}
+
+/* Label styling */
+.password-message label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: white; /* Default text color */
+    font-size: 20px;
+    position: relative;
+}
+
+.password-message p {
+    font-size: 25px;
+    margin-left: 10px;
+    
+}
+
+.about-us {
+    opacity: 1;
+    padding: 50px 20px;
+    background-color: transparent;
+    border: 2px solid #00f;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00f;
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    transition: margin 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+}
+
+.about-us h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+    color: white;
+    max-width: 800px;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column; /* Place buttons side by side */
+    gap: 20px; /* Space between the buttons */
+    margin-top: 20px;
+}
+
+input[disabled] {
+    background-color: #f8f9fa; /* Light gray background */
+    color: #495057; /* Darker text color for better readability */
+    cursor: not-allowed;
+    opacity: 1; 
+    border-color: #ced4da;
+}
+
+.profile-actions button {
+    background-color: darkorange;
+    color: white;
+    border: none;
+    padding: 10px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    text-align: center;
+}
+
+.profile-actions button:hover {
+    background-color: orangered;
+}
+
+.profile-actions label {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px; /* Ensure space between label and input field */
+}
+
+.profile-actions input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    font-size: 16px; /* Ensure text is readable */
+}
+
+.save-btn-container {
+    display: flex;
+    flex-direction: column; /* Place Save button in column */
+    margin-top: 20px; /* Gap between the input fields and Save button */
+    margin-bottom: 10px;
+}
+
+.save-btn {
+    background-color: darkorange;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align the button to the left */
+}
+
+.save-btn:hover {
+    background-color: orangered;
+}

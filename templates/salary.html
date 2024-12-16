@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction</title>
+    <link rel="stylesheet" href="../static/css/salary.css">
+</head>
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop id="background-video">
+        <source src="../static/css/videos/salary video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="wrapper">
+        <div class="center-content">
+            <h1>Salary Prediction</h1>
+            <form id="salary-prediction-form" action="/" method="POST">
+                <div class="form-group">
+                    <label for="education_level">Education Qualification</label>
+                    <input type="text" id="education_level" name="education_level" class="textbox" placeholder="Enter your qualification" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience-select">Experience or Fresher</label>
+                    <input type="text" id="experience-select" class="textbox" placeholder="Experience or Fresher" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="min_experience">Years of Experience</label>
+                    <input type="text" id="min_experience" name="min_experience" class="textbox" placeholder="Enter years of experience" disabled>
+                </div>                
+                
+                <div class="form-group">
+                    <label for="company_name">Company</label>
+                    <input type="text" id="company_name" name="company_name" class="textbox" placeholder="Enter company name" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="job_title">Job Title</label>
+                    <input type="text" id="job_title" name="job_title" class="textbox" placeholder="Enter your job title" disabled>
+                </div>
+                
+                <button type="button" class="btn" id="voice-assistant-btn">Voice Assistant</button>
+                <button type="submit" class="btn">Predict</button>
+            </form>
+
+            {% if predicted_salary %}
+                <div class="predicted-salary">
+                    <h2>Predicted Salary : {{ predicted_salary }}</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="../static/css/script.js"></script>
+    <script>
+        document.getElementById('salary-prediction-form').addEventListener('submit', function(event) {
+            // Check if all required fields are filled
+            const fields = [
+                'education_level', 'experience-select', 'min_experience', 
+                'company_name', 'job_title'
+            ];
+            let allFilled = true;
+
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                event.preventDefault(); // Prevent form submission
+                // Trigger voice alert to notify user
+                const synth = window.speechSynthesis;
+                const utterance = new SpeechSynthesisUtterance("First fill all the required fields using voice assistant.");
+                synth.speak(utterance);
+            }
+        });
+        
+    </script>
+</body>
+</html>

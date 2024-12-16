@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Course Recommendation</title>
+    <link rel="stylesheet" href="../static/css/courses.css">
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="../static/css/videos/course.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Overlay for readability -->
+    <div class="video-overlay"></div>
+
+    <!-- Main content -->
+    <div class="content">
+        <!-- Heading for Course Recommendation -->
+        <h1>Course Recommendation</h1>
+
+        <!-- Input bar for user input -->
+        <div class="input-section">
+            <form id="course-form" onsubmit="event.preventDefault(); getRecommendations();">
+                <input type="text" id="course-input" name="query" placeholder="Enter skills or course name..." disabled>
+                <br>
+                <button type="button" id="voice-assistant-btn">Voice Assistant</button>
+                <button type="submit" id="recommend-btn">Recommend</button>
+            </form>
+        </div>
+
+        <!-- Section to display recommended courses -->
+        <div id="results" class="course-grid">
+            <!-- Recommendations will dynamically appear here -->
+        </div>
+    </div>
+
+    <!-- Modal to display detailed course info -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="course-title"></h3>
+            <p id="course-description"></p>
+            <p id="course-rating"></p>
+            <p id="course-duration"></p>
+            <p id="course-level"></p>
+            <p id="course-type"></p>
+            <p id="course-url" style="text-align: center;">
+                <strong>Click on the link to visit the course</strong>
+                <br>
+                <a href="#" style="color: blue; text-decoration: none; border-bottom: 1px solid black; padding-bottom: 2px;">Go to course</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="../static/css/course.js"></script>
+
+    <script>
+        document.getElementById('course-form').addEventListener('submit', function(event) {
+            // Check if all required fields are filled
+            const fields = [
+                'course-input'
+            ];
+            let allFilled = true;
+
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                event.preventDefault(); // Prevent form submission
+                // Trigger voice alert to notify user
+                const synth = window.speechSynthesis;
+                const utterance = new SpeechSynthesisUtterance("Enter skills or course name using voice assistant.");
+                synth.speak(utterance);
+            }
+        });
+
+        window.onload = function () {
+            fetch('/get_recommendations')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        displayRecommendations(data);
+                    }
+                })
+                .catch(error => console.error('Error fetching recommendations:', error));
+        };
+    </script>
+</body>
+</html>

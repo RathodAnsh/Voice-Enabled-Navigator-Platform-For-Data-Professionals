@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendation</title>
+    <link rel="stylesheet" href="../static/css/job.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add styles for cards and modal */
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            width: 300px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .view-job-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .view-job-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles for modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #afe7ef, #33a3b2);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: black;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop class="background-video">
+            <source src="../static/css/videos/job.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Overlay for readability -->
+    <div class="video-overlay"></div>
+
+    <div class="transparent-frame">
+        <h1>Job Recommendation</h1>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="qualification">Educational Qualification</label>
+                <input type="text" id="qualification" class="textbox" placeholder="Enter your qualification" disabled>
+                <p class="note">Note: Please give qualification like Masters, Phd.</p>
+            </div>
+            <div class="form-group">
+                <label for="expected-salary">Expected Salary</label>
+                <input type="text" id="expected-salary" class="textbox" placeholder="Enter expected salary">
+                <p class="note">Note: Please give expected salary like 100000.</p>
+            </div>
+            <div class="form-group">
+                <label for="years-experience">Years of Experience</label>
+                <input type="text" id="years-experience" class="textbox" placeholder="Enter years of experience">
+            </div>
+            <div class="form-group">
+                <label for="location">Job Location</label>
+                <input type="text" id="location" class="textbox" placeholder="Enter your Job location" disabled>
+            </div>
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" id="job-title" class="textbox" placeholder="Enter Job Title" disabled>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" id="skills" class="textbox" placeholder="Enter your skills" disabled>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="voice-btn">Voice Assistance</button>
+            <button class="btn" id="recommend-btn">Recommend</button>
+        </div>
+    </div>    
+        <div id="results" class="results cards-container"></div> <!-- Container for displaying results -->
+    </div>
+
+    <!-- Section to display recommended courses -->
+    <div id="results" class="course-grid">
+        <!-- Recommendations will dynamically appear here -->
+    </div>
+
+    <!-- Modal to display detailed course info -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="job-title"></h3>
+            <p id="company"></p>
+            <p id="location"></p>
+            <p id="salary"></p>
+            <p id="skills-req"></p>
+            <p id="company-rating"></p>
+            <p id="job-description"></p>
+        </div>
+    </div>
+
+    <script src="static/css/script.js"></script>
+
+    <script>
+        document.getElementById('recommend-btn').addEventListener('click', async () => {
+            const qualification = document.getElementById('qualification').value;
+            const yearsExperience = document.getElementById('years-experience').value;
+            const jobTitle = document.getElementById('job-title').value;
+            const expectedSalary = document.getElementById('expected-salary').value;
+            const location = document.getElementById('location').value;
+            const skills = document.getElementById('skills').value;
+
+            // Validate if the input fields are filled
+            if (!qualification || !yearsExperience || !jobTitle || !expectedSalary || !location || !skills) {
+                // If any field is empty, use TTS to prompt the user to fill details
+                speak("First fill all the required fields using voice assistant.");
+                return;
+            }
+
+            const response = await fetch('/recommend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "educational_level": qualification,
+                    "years_of_experience": yearsExperience,
+                    "job_title": jobTitle,
+                    "salary_avg_estimate": expectedSalary,
+                    "location": location,
+                    "skills_req": skills
+                })
+            });
+
+            const recommendations = await response.json();
+            displayRecommendations(recommendations);
+
+            // Implementing the Text-to-Speech after job recommendation
+            speak(`Below are the recommended jobs for your ${jobTitle}`);
+        });
+
+        // Text-to-Speech function
+        function speak(text) {
+            const speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            speech.lang = "en-US";
+            speech.volume = 1; // Volume level (0 to 1)
+            speech.rate = 1;   // Speed rate (0.5 to 2)
+            speech.pitch = 1;  // Pitch level (0 to 2)
+            window.speechSynthesis.speak(speech);
+        }
+
+        // Function to open the course modal with detailed information
+        function openCourseModal(title, description, company, location, salary, skills, rating) {
+            // Populate the modal with course details
+            document.getElementById('job-title').innerText = title;
+            document.getElementById('company').innerHTML = `<strong>Company:</strong> ${company}`;
+            document.getElementById('location').innerHTML = `<strong>Location:</strong> ${location}`;
+            document.getElementById('salary').innerHTML = `<strong>Salary:</strong> ${salary}`;
+            document.getElementById('skills-req').innerHTML = `<strong>Skills Required:</strong> ${skills}`;
+            document.getElementById('company-rating').innerHTML = `<strong>Company Rating:</strong> ${rating}`;
+            document.getElementById('job-description').innerHTML = `<strong>Job Description:</strong> ${description}`;
+
+            // Display the modal
+            document.getElementById('courseModal').style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('courseModal').style.display = 'none';
+        }
+
+        function displayRecommendations(recommendations) {
+    const resultsDiv = document.getElementById("results");
+    resultsDiv.innerHTML = ''; // Clear previous results
+
+    // Loop through the recommendations and create elements for each
+    recommendations.forEach(course => {
+        const courseElement = document.createElement("div");
+        courseElement.classList.add("course-card");
+        courseElement.innerHTML = `
+            <h3>${course['job_title']}</h3>
+            <button class="view-btn" onclick="openCourseModal(
+                '${course['job_title']}', 
+                '${course['job_description']}', 
+                '${course['company']}', 
+                '${course['location']}', 
+                '${course['salary_avg_estimate']}', 
+                '${course['skills_req']}', 
+                '${course['company_rating']}')">View Job</button>
+        `;
+        resultsDiv.appendChild(courseElement);
+    });
+}
+
+    </script>
+</body>
+</html>

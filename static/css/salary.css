@@ -1,0 +1,132 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    filter: brightness(0.5);
+}
+
+.wrapper {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    width: 30%;
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    color: white;
+    margin-bottom:5px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 2px;
+    align-items: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    margin-bottom: 10px;
+    appearance: none;
+}
+
+option {
+    background-color: black;
+    color: white;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.textbox::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+}
+
+.textbox {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.textbox:disabled {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#years-experience {
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.note {
+    color: #ff0;
+    font-size: 0.9em;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: left;
+    margin-left: 2px;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF7300;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.btn:hover {
+    background-color: #FF5900;
+}

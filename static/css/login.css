@@ -1,0 +1,189 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Video background styles */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.wrapper {
+    background-color: rgba(26, 26, 26, 0.8); /* Adjusted transparency for better readability */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for contrast */
+    z-index: 1; /* Ensure it's above the video */
+    max-width: 400px; /* Limiting the width for better appearance */
+    width: 100%;
+}
+
+form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+form.active-form {
+    display: flex;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-box input {
+    width: 93%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.remember-forget {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.remember-forget a {
+    color: #FF7300;
+    text-decoration: none;
+}
+
+/* Password criteria styles */
+/* Hide default checkbox */
+.password-message input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom checkbox styling */
+.password-message input[type="checkbox"] + span::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-color: #333; /* Default grey background color */
+    border: 2px solid #FF7300; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    vertical-align: middle;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Checked state */
+.password-message input[type="checkbox"]:checked + span::before {
+    background-color: #333; /* Grey background color */
+    border-color: #00FF00; /* Green border color */
+}
+
+/* Tick mark inside the checkbox */
+.password-message input[type="checkbox"]:checked + span::after {
+    content: '\2714'; /* Unicode checkmark */
+    color: #00FF00; /* Green tick color */
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(-50%, -50%);
+}
+
+/* Label styling */
+.password-message label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* Default text color */
+    font-size: 14px;
+    position: relative;
+}
+
+/* Text color based on checkbox state */
+.password-message input[type="checkbox"]:checked + span {
+    color: #00FF00; /* Green for valid criteria */
+}
+
+.password-message input[type="checkbox"]:not(:checked) + span {
+    color: white; /* Red for invalid criteria */
+}
+
+/* Error message styles */
+.error-message {
+    margin-top: 10px;
+    font-size: 16px;
+    color: hsl(0, 68%, 54%); /* Red color for error */
+    display: none; /* Initially hidden */
+}
+.btn {
+    background-color: #FF7300;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.btnn {
+    background-color: #FF7300;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+.btn:hover {
+    background-color: #FF9C33;
+}
+
+.register-link {
+    margin-top: 20px;
+    color: white;
+}
+
+.register-link a {
+    color: #FF7300;
+    text-decoration: none; /* Fixed text-decoration property */
+}

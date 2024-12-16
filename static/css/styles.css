@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a; /* Dark blue background color */
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    backdrop-filter: none;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Orbitron';
+    color: white;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.header-right a,
+.header-right .btn {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-right a:hover,
+.header-right .btn:hover {
+    background-color: lightslategray;
+}
+
+.header-right a:focus,
+.header-right .btn:focus {
+    outline: none;
+}
+
+.profile-button {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-button img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    margin-right: 10px;
+}
+
+.profile-button button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.profile-button button:hover {
+    color: lightslategray;
+}
+
+#logoutDropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#logoutDropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none; 
+    display: block;  
+}
+
+#logoutDropdown a:hover {
+    background-color: #ddd;
+}
+
+.pro {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* It will show the dropdown when clicked */
+.profile-button.active #logoutDropdown {
+    display: block;
+}
+
+.banner {
+    background: url('../css/images/Dashboard.jpg') no-repeat center center;
+    background-size: cover;
+    height: 900px;
+    width: 100%;
+    margin-top: -50px;
+    transition: margin-top 0.3s ease;
+}
+
+main {
+    padding: 20px;
+    margin-top: 80px;
+    padding-bottom: 100px; /* Add padding to the bottom */
+    background-color: #0d1b2a; /* Dark blue background */
+    transition: padding 0.3s ease, margin-top 0.3s ease;
+}
+
+.about-us {
+    opacity: 1; /* Ensure the about us section is fully visible */
+    padding: 50px 20px;
+    background-color: transparent; /* Remove background color */
+    border: 2px solid #00f; /* Blue border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00f; /* Blue glow effect */
+    margin: 60px auto; /* Increased margin for better separation */
+    max-width: 800px;
+    text-align: center;
+    position: relative; /* Position relative for the pseudo-element */
+    z-index: 1; /* Ensure it stays on top of other content */
+    transition: margin 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+}
+
+.about-us h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    color: white;
+    max-width: 800px; /* Ensure max-width doesn't exceed the container */
+}
+
+.services {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: transparent; /* Ensure background is transparent */
+    border: 2px solid #00f; /* Blue border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00f; /* Blue glow effect */
+    margin: 60px auto; /* Increased margin for better separation */
+    max-width: 1000px;
+    position: relative; /* Position relative for the pseudo-element */
+    z-index: 1; /* Ensure it stays on top of other content */
+    transition: margin 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+}
+
+.services h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.service-card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background-color: transparent; /* Ensure background is transparent */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+}
+
+.service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+.service-card:hover .overlay {
+    opacity: 1;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.service-card p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: white;
+}
+
+.feedback-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #0d1b2a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 60px auto; /* Increased margin for better separation */
+    max-width: 800px;
+    box-sizing: border-box;
+    border: 2px solid #00f; /* Neon glow border */
+    position: relative; /* Position relative for the pseudo-element */
+    box-shadow: 0 0 20px #00f; /* Blue glow effect */
+    transition: margin 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+}
+
+.feedback-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedback-form label {
+    font-size: 18px;
+    color: white;
+    text-align: left;
+}
+
+.feedback-form select,
+.feedback-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    transition: padding 0.3s ease;
+}
+
+.feedback-form button {
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid rgba(0, 255, 255, 0.6); /* Neon glow border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.feedback-form button:hover {
+    background-color: rgba(0, 255, 255, 0.6); /* Neon glow on hover */
+    color: black;
+}
+
+.feedback-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: row-reverse;
+}
+
+.stars input {
+    display: none; /* Hide the default radio button */
+}
+
+.stars label {
+    font-size: 30px;
+    color: #ccc; /* Light gray for unselected stars */
+    cursor: pointer;
+}
+
+.stars input:checked ~ label {
+    color: gold; /* Color for selected stars */
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold; /* Color for stars on hover */
+}
+
+.rating-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px; /* Space between rating text and stars */
+}
+
+
+.feedback-section::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Adjust the vertical position */
+    left: -10px; /* Adjust the horizontal position */
+    right: -10px; /* Adjust the horizontal position */
+    bottom: -10px; /* Adjust the vertical position */
+    border: 2px solid rgba(0, 255, 255, 0.6); /* Neon glow border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    z-index: -1; /* Place behind the main container */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* General styles for the user section */
+.user {
+    opacity: 1; /* Ensure the about us section is fully visible */
+    padding: 50px 20px;
+    background-color: transparent; /* Remove background color */
+    border: 2px solid #00f; /* Blue border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00f; /* Blue glow effect */
+    margin: 60px auto; /* Increased margin for better separation */
+    max-width: 800px;
+    text-align: center;
+    position: relative; /* Position relative for the pseudo-element */
+    z-index: 1; /* Ensure it stays on top of other content */
+    transition: margin 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+}
+
+/* Title styles */
+.user-content h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: white; /* Darker text for better readability */
+}
+
+/* Feedback card styles */
+.feedback-card {
+    background-color: #fff; /* White background for cards */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px; /* Rounded corners for cards */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    text-align: left; /* Align text to the left for details */
+}
+
+/* Feedback details styles */
+.feedback-details {
+    text-align: left; /* Align text to the left */
+}
+
+/* Feedback text styles */
+.feedback-text,
+.job-title,
+.experience {
+    font-size: 1em; /* Adjust font size */
+    margin: 5px 0; /* Space around text */
+    color: #555; /* Color for text */
+}
+
+/* Star rating styles */
+.stars {
+    font-size: 2em; /* Size of stars */
+    color: gold; /* Star color */
+    margin-right: 620px;
+    margin-top: -5px;
+}
+
+/* Profile info styles */
+.profile-info {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-end; /* Align profile info to the right */
+    margin-top: 10px; /* Space above profile info */
+}
+
+/* Profile image styles */
+.profile-image {
+    background-color: #007bff; /* Blue background for initials */
+    color: white; /* White text for contrast */
+    width: 50px; /* Width of the circle */
+    height: 50px; /* Height of the circle */
+    border-radius: 50%; /* Circular shape */
+    display: flex; /* Flex for centering text */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    margin-right: 720px; /* Space to the right of the image */
+    font-size: 1.5em; /* Adjust font size for initials */
+    overflow: hidden; /* Hide overflow to maintain circle shape */
+}
+
+/* User details styles */
+.user-details {
+    display: flex; /* Flexbox for horizontal layout */
+    flex-direction: column; /* Stack details vertically */
+    justify-content: center; /* Center items vertically */
+    text-align: left; /* Align text to the left */
+}
+
+/* Username styles */
+.username {
+    font-weight: bold; /* Bold for emphasis */
+    color: #333; /* Dark color */
+    margin-left: -710px; /* Space to the left of the username */
+}
+
+/* Submitted date styles */
+.submitted-date {
+    font-size: 0.9em; /* Smaller text for date */
+    color: #777; /* Lighter color for date */
+    margin-left: -710px; /* Space to the left of the username */
+}
+
+.navigation-buttons {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: 20px; /* Space above the buttons */
+}
+
+.nav-button {
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for buttons */
+    margin: 0 10px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Font size */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.nav-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+    font-family: 'Inter';
+    font-size: 1.2em;
+}
+
+a.dynamic-link {
+    color: #DAA520; /* Goldenrod */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+a.dynamic-link:hover {
+    color: #FFD700; /* Gold */
+}

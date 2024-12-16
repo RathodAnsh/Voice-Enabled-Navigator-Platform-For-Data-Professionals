@@ -1,0 +1,263 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: #f4f4f9; /* Light background color */
+}
+
+/* Video background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay to increase contrast */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+    z-index: -1;
+}
+
+/* Main content */
+.content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 50px;
+    color: white;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 22px;
+    margin: 30px 0;
+    font-weight: 500;
+}
+
+/* Input section */
+.input-section {
+    margin-bottom: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#course-input {
+    padding: 12px 20px; /* Added padding for better input experience */
+    width: 600px;
+    font-size: 18px;
+    border-radius: 10px; /* More rounded for a modern look */
+    border: 2px solid transparent; /* Initially no border */
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent input background */
+    color: #333; /* Darker text for contrast */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#course-input:focus {
+    border: 2px solid #6C63FF; /* Gradient border on focus */
+    box-shadow: 0px 4px 12px rgba(108, 99, 255, 0.5); /* Shadow to highlight input */
+}
+
+#recommend-btn {
+    
+    padding: 12px 30px; /* Adjusted padding for better button size */
+    font-size: 18px;
+    margin-top: 30px;
+    margin-right: 10px;
+    background-color: #ff7300;    
+    color: white;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Add an effect when the button is clicked */
+#recommend-btn:active {
+    transform: scale(0.95); /* Slightly reduces the size on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow when clicked */
+
+}
+
+#recommend-btn:hover {
+    background-color: #ff5300;
+}
+
+#voice-assistant-btn {
+    
+    padding: 12px 30px; /* Adjusted padding for better button size */
+    font-size: 18px;
+    margin-top: 30px;
+    margin-right: 10px;
+    background-color: #ff7300;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Add an effect when the button is clicked */
+#voice-assistant-btn:active {
+    transform: scale(0.95); /* Slightly reduces the size on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow when clicked */
+
+}
+
+#voice-assistant-btn:hover {
+    background-color: #ff5300;}
+
+/* Course grid and card styling */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px; /* Slightly reduced gap */
+    justify-items: center;
+    margin-top: 20px;
+    
+}
+
+.course-card {
+    width: 320px;
+    height: 190px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15)); /* Light gradient for a soft look */
+    backdrop-filter: blur(12px); /* Glassmorphism */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Border with transparency */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.course-card h3 {
+    font-family: 'Poppins', sans-serif; /* Apply the Poppins font */
+    font-weight: 500; /* Medium weight for better emphasis */
+    color: white;
+    font-size: 22px; /* Slightly larger for emphasis */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* A bit stronger shadow for better readability */
+    margin-top: 0; /* Align at the top */
+    letter-spacing: 0.5px; /* Slight spacing for elegance */
+}
+
+/* Button styling */
+.view-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: #FFD93D; /* Match the recommend button with a new color */
+    border: 2px solid transparent;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.view-btn:hover {
+    background-color: #FF6B6B; /* Harmonized color */
+    color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Hover shadow */
+}
+
+
+
+/* Modal styling */
+.modal {
+    
+    display: none;
+    position:fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #afe7ef, #33a3b2);
+    overflow-y: auto;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.modal-content h3{
+    font-size: 20px;
+}
+
+#course-title {
+    color: #24215e;
+    text-align: center; /* Centers the title */
+    margin-bottom: 15px; /* Adjusts the gap between the title and other content */
+}
+
+
+#course-url {
+    text-align: center; /* Centers the title */
+    margin-top: 12px; /* Adjusts the gap between the title and other content */
+    margin-bottom: 10px;
+}
+
+.close {
+    color: #3a3838;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a; /* Dark blue background color */
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Orbitron';
+    color: white;
+}
+
+main {
+    padding: 20px;
+    margin-top: 80px;
+    padding-bottom: 100px;
+    background-color: #0d1b2a;
+    transition: padding 0.3s ease, margin-top 0.3s ease;
+}
+
+.redirect-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: rgb(48, 167, 241); /* Green background */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.redirect-btn:hover {
+    background-color: blue; /* Darker green */
+}
+
+.redirect-btn i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.center-text {
+    text-align: center;
+    margin-top: 100px; /* Slightly below the header */
+    font-size: 3.5em;
+    font-family: 'Orbitron';
+    color: white;
+}
+
+.center-text p {
+    font-size: 35px;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, rgba(132,94,194,1) 0%, rgba(214,93,177,1) 20%, rgba(255,111,145,1) 40%, rgba(255,150,113,1) 60%, rgba(255,199,95,1) 80%, rgba(249,248,113,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text; /* For Safari support */
+    color: transparent; /* Make the text transparent to show the gradient */
+}
+
+/* Core Team Section Styles */
+.core-team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.core-member {
+    text-align: center;
+    width: 220px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.core-member img {
+    width: 150px;
+    height: 200px; /* Cuboid shape */
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.core-member h3 {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.core-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a {
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #3b85d3; /* Dark background for links on hover */
+}
