@@ -9,7 +9,7 @@ The platform uses a voice-enabled interface for hands-free interaction, enhancin
 
 # Features
 
-Voice-Assisted Input: Uses Web Speech API for hands-free user inputs.
+# Voice-Assisted Input: Uses Web Speech API for hands-free user inputs.
 
 Salary Prediction: Utilizes the Gradient Boosting Algorithm for accurate salary forecasts.
 
