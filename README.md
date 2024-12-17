@@ -1,7 +1,3 @@
-# Demonstration Video
-
-https://github.com/user-attachments/assets/00949ae1-562a-4654-8cdd-a914f40ddc87
-
 # Voice-Enabled Navigator Platform For Data Professionals
 
 # Introduction 🔍
@@ -42,6 +38,10 @@ The platform uses a voice-enabled interface for hands-free interaction, enhancin
 # Team Behind this Project
 
 ![core team of Data Professionals](https://github.com/user-attachments/assets/b83c0e16-5b89-4559-8ba8-f94859c41ccd)
+
+# Demonstration Video
+
+https://github.com/user-attachments/assets/00949ae1-562a-4654-8cdd-a914f40ddc87
 
 # Conclusion
 
