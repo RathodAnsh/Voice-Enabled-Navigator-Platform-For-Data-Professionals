@@ -39,10 +39,6 @@ The platform uses a voice-enabled interface for hands-free interaction, enhancin
 
 ![core team of Data Professionals](https://github.com/user-attachments/assets/b83c0e16-5b89-4559-8ba8-f94859c41ccd)
 
-# Demonstration Video
-
-https://github.com/user-attachments/assets/00949ae1-562a-4654-8cdd-a914f40ddc87
-
 # Conclusion
 
 The platform addresses fragmented systems by providing a unified solution with advanced features, specifically tailored for data professionals.
@@ -50,3 +46,6 @@ The platform addresses fragmented systems by providing a unified solution with a
 # License 📄
 This project is licensed under the MIT-Licence. ©️
  
+# Demonstration Video
+
+https://github.com/user-attachments/assets/00949ae1-562a-4654-8cdd-a914f40ddc87
