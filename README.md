@@ -49,3 +49,7 @@ This project is licensed under the MIT-Licence. ©️
 # Demonstration Video
 
 https://github.com/user-attachments/assets/00949ae1-562a-4654-8cdd-a914f40ddc87
+
+## Contact
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/anshrathod01/).
